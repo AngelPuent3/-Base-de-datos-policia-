@@ -1,4 +1,20 @@
- def visualizarJuez(self):
+global listSJuez
+global listSCondena
+
+class JuezMain:
+    def listaJuez(self):#Aqui el usuario usa decide cuantos jueces desea crear con el iniciador iniJuez
+        listSJuez = []
+        j = JuezMain()
+        iniJuez = int(input("¿Cuantos jueces desea agregar"))
+        for i in range(iniJuez):
+            j.codigoJuez = int(input("Ingrese el codigo del juez \n >"))
+            j.nombreSJuez = str(input("Ingrese el nombre del juez\n>"))
+            j.edadJuez = int(input("Ingrese los años de servicion del juez\n>"))
+            listSJuez.append(listSJuez)
+        j.mainJuez()
+            
+   
+    def visualizarJuez(self):
         for j in listSJuez:
             print("**Registro Juez*")
             print("-------------")
@@ -34,10 +50,10 @@
         opMjuez=(int(input(">")))
         if opMjuez==1:
             je=JuezMain()
-            je.matrizJuez()
+            je.listaJuez()
         elif opMjuez==2:
             je=JuezMain()
-            je.visualizarMatriz()
+            je.visualizarJuez()
         elif opMjuez==3:
             je = JuezMain()
             je.visualizarCondena()
