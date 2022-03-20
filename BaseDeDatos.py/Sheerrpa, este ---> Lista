@@ -1,6 +1,22 @@
 global listSJuez
 global listSCondena
 
+#Funcion principal donde se manda a llamar a las clases
+def mainP():
+    print("**POlICIA**")
+    print("Base de datos")
+    print("-------------")
+    print("1.-Juez\n2.Banco")
+    opM=int(input(">"))
+    if opM==1:
+        mainJuezP = JuezMain()
+        mainJuezP.mainJuez()
+    elif opM==2:
+        bmain=Banco()
+        bmain.mainBanco()
+    else:
+        exit("Adios :)")
+        
 class JuezMain:
     def listaJuez(self):#Aqui el usuario usa decide cuantos jueces desea crear con el iniciador iniJuez
         listSJuez = []
@@ -61,10 +77,6 @@ class JuezMain:
             mainP()
         else:
             print("error loa regraremos al menu principal \n ", mainP())
-
-
-
-
 
 
 mainP()
