@@ -29,4 +29,5 @@ ser atracada por varias personas.
 diferentes delitos, puede ser juzgado por diferentes jueces. Es de interés saber, en cada delito, si la
 persona detenida ha sido condenada o no y de haberlo sido, cuánto tiempo pasará en la cárcel. Un
 Juez se caracteriza por una clave interna del juzgado, su nombre y los años de servicio.
+
 NOTA: En ningún caso interesa saber si un vigilante ha participado en la detención de un atracador
