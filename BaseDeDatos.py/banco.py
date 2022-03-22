@@ -1,6 +1,5 @@
-global listBanco
-global listContrato
-listBanco=list()
+matrizBanco=list()
+listaBanco=list()
 listContrato=list()
 
 class Banco:
@@ -11,7 +10,7 @@ class Banco:
         print("Menu Banco")
         print("---------")
         print(
-            "Añadir Banco\n, 2.- Visualizar Banco\n 3.Agregar Sucursales\n  4.- Contratar Vigilante 5.Regresar a menu principal\n ")
+            "1.-Añadir Banco\n2.- Visualizar Banco\n3.Agregar Sucursales\n4.- Contratar Vigilante\n5.-Regresar a menu principal\n ")
         opMb = (int(input(">")))
         if opMb == 1:
             mainb = Banco()
@@ -32,25 +31,29 @@ class Banco:
 
 
     def listaSBanco(self):
-          b=Banco()
-          opBa = int(input("¿Cuantos sucursales  tiene el banco?"))
-          for i in range(opBa):
-               b.codigoBanco = int(input("Ingrese la clave de la sucursal\n>"))
-               b.edadBanco = int(input("Ingrese los años de la sucursal\n>"))
-               b.domicilioBanco=str(input("Ingrese la direccion del banco\nEjem: 14 norte Col. Centro"))
-               listBanco.append(b)
-          b.mainBanco()
+        global matrizBanco
+        global listaBanco
+        ba = Banco()
+        print("Porfavor llenar la lista mediante las siguiente indicaciones\n"
+              "Numero dato 0 ---> Codigo del Banco\n"
+              "Numero dato 1 ---> Edad del banco\n"
+              "Numero dato 2 ---> Domicilio banco---Ejemplo: 14 norte #102 col. Centro")
+        f = input("Enterr >>>>")
+        columnas = int(input("Ingrese el numero de Bancos que desea agregar"))
+        matrizBanco = []
+        for ren in range(columnas):
+            listaBanco = []
+            for col in range(3):
+                print("Numero de juez", ren, "Numero dato", col)
+                aBan = str(input(">"))
+                listaBanco.append(aBan)
+            matrizBanco.append(listaBanco)
+        return ba.mainBanco()
 
     def visualizarBanco(self):
-          b=Banco()
-          for b in listBanco:
-               print("**Registro banco*")
-               print("-------------")
-               print("CodigoBanco:", b.codigoBanco, "\nDomicilio del banco:", b.domicilioBanco,
-                     "\n Sucursales banco:",
-                     b.domicilioBanco)
-               print("-------------")
-          b.mainBanco()
+        print(matrizBanco)
+        viBa = Banco()
+        viBa.mainBanco()
 
     def contratarBanco(self):
           from vigilante import Vigilante
@@ -73,6 +76,7 @@ class Banco:
                b.mainBanco()
           else:
                print("Error")
+
 
 
 
