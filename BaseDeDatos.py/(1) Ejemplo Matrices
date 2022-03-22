@@ -1,89 +1,41 @@
-global listSJuez #mis dos matrices a usar
-global matrizSJuez
-#metodo principal donde sera llamado todo (falta agrega la parte de banco)
-def mainP():
-    print("**POlICIA**")
-    print("Base de datos")
-    print("-------------")
-    print("1.-Juez\n2.Banco")
-    opM=int(input(">"))
-    if opM==1:
-        mainJuezP = JuezMain()
-        mainJuezP.mainJuez()
-    elif opM==2:
-        bmain=Banco()
-        bmain.mainBanco()
+global matrizJuez
+global lista
+matrizJuez=[]
+lista=[]
+class Juez:
+
+    def mostrarMatriz(self):
+        b=Juez()
+        print("Porfavor llenar la lista mediante las siguiente indicaciones\n"
+              "Numero dato 0 ---> Codogo del juez\n"
+              "Numero dato 1 ---> Nombre del Juez\n"
+              "Numero dato 2 ---> Años experiencia juez")
+        f = input("Enterr >>>>")
+        print("Ingrese el numero de jueces")
+        columnas = int(input())
+        matrizJuez = []
+        for ren in range(columnas):
+            lista = []
+            for col in range(3):
+                print("Numero de juez", ren,"Numero dato", col)
+                a=str(input(">"))
+                lista.append(a)
+            matrizJuez.append(lista)
+        return b.visualizarJuez()
+
+
+    def visualizarJuez(self):
+        print(matrizJuez)
+
+def main():
+    op=int(input("Ingrese la opcion"))
+    if op==1:
+        mat = Juez()
+        mat.mostrarMatriz()
+        main()
+    elif op==2:
+         mat=Juez()
+         mat.visualizarJuez()
     else:
-        exit("Adios :)")
-
-
-#Creacion de la clase Juez, donde mandare a llamar las clases, ladron, surcusal atraco
-
-class JuezMain:
-
-
-    def matrizJuez(self):#el usuario define el tamaño de la matriz
-        j=JuezMain()
-        matrizSJuez=[]
-        print("Jueces")
-        reglon = int(input("Ingrese el numero renglones de jueces que desea agregar"))
-        columna = int(input("Ingrese el numero columnas de jueces que desea agregar"))
-        for ren in range(reglon):
-            listSJuez=()
-            for col in range(columna):
-                j.codigoJuez = int(input("Ingrese el codigo del juez \n >"))
-                j.nombreSJuez = str(input("Ingrese el nombre del juez\n>"))
-                j.edadJuez = int(input("Ingrese los años de servicio del juez\n>"))
-            matrizSJuez.append(listSJuez)
-        j.mainJuez()
-
-    def visualizarMatriz(self,reglon, columna):
-        je2=JuezMain()
-        for j in range(reglon):
-            for c  in range (columna):
-                print(matrizSJuez[j][c], end="")
-            print()
-        je2.mainJuez()
-
-
-    def determinarCondena(self):
-        listSCondena = []
-        jc = JuezMain()
-        jc.numJuez=int(input("Ingrese el numero de Juez\n>"))
-        jc.casoJuez=int(input("Ingrese el numerto de caso \n>"))
-        jc.condena=str(input("¿Lo va condenar?\n"))
-        jc.tipoCondena=str(input("¿Cual es su condena?\n >"))
-        jc.tiempoCondena=int(input("Ingrese su condena en años \n >"))
-        listSCondena.append(jc)
-
-    def visualizarCondena(self):
-        for jc in listSCondena:
-            print("**Registro Condena juez*")
-            print("-------------")
-            print("Numero de Juez", jc.numuez, "\nCaso juez:", jc.casoJuez, "\n Lo va condenar?", jc.tipoCondena,
-                  "\n Tipo de condena:", jc.tipoCondena,
-                  "\nTiempo de condena", jc.tiempoCondena)
-            print("-------------")
-
-    def mainJuez(self):
-        print("Menu Juez")
-        print("---------")
-        print("1.-Añadir Juez\n2.-Visualizar Juez\n3.-Determinar condena\n4.-Visualizar Condena\n ")
-        opMjuez=(int(input(">")))
-        if opMjuez==1:
-            je=JuezMain()
-            je.matrizJuez()
-        elif opMjuez==2:
-            je=JuezMain()
-            je.visualizarMatriz()
-        elif opMjuez==3:
-            je = JuezMain()
-            je.visualizarCondena()
-        elif opMjuez==4:
-            mainP()
-        else:
-            print("error loa regraremos al menu principal \n ", mainP())
-
-
-
-mainP()
+        exit("Adios")
+main()
