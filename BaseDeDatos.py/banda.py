@@ -1,13 +1,10 @@
-from Ladron import Ladron
-from main import mainP
-from Juez import JuezMain
 global listBanda
+listBanda=[]
 
 
 class Banda:
 
     def listaBanda(self):
-        listBanda=[]
         b = Banda()
         opBlis=int(input("¿Ingrese cuantos numeros de banda son?"))
         for i in range(opBlis):
@@ -24,6 +21,9 @@ class Banda:
             print("-------------")
 
     def mainBanda(self):
+        from main import mainP
+        from ladron import Ladron
+        from juez import  Juez
         print("Menu Banda")
         print("---------")
         print(
@@ -39,11 +39,10 @@ class Banda:
             maiLaB=Ladron()
             maiLaB.mainLadron()
         elif opMb == 4:
-            maiJuezB=JuezMain()
+            maiJuezB=Juez()
             maiJuezB.mainJuez()
         elif opMb==5:
             mainP()
         else:
             print("error loa regraremos al menu principal \n ")
             mainP()
-
