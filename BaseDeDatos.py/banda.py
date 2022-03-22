@@ -1,24 +1,32 @@
-global listBanda
-listBanda=[]
-
+matrizBanda=[]
+listaBanda=[]
 
 class Banda:
 
-    def listaBanda(self):
-        b = Banda()
-        opBlis=int(input("¿Ingrese cuantos numeros de banda son?"))
-        for i in range(opBlis):
-            b.numDeBanda = int(input("Ingrese el numero de banda\n>"))
-            b.miembrosBanda = int(input("Ingrese los numeros de miembros que tiene la banda\n>"))
-            listBanda.append(listBanda)
-        b.mainBanda()
+    def listaSBanda(self):
+        global matrizBanda
+        global listaBanda
+        print("Porfavor llenar la lista mediante las siguiente indicaciones\n"
+              "Numero dato 0 ---> Numero de banda --int\n"
+              "Numero dato 1 ---> Miembros de banda --int\n")
+        f = input("Enterr >>>>")
+        columnas = int(input("Ingrese el numero de bandas que desea agregar"))
+        matrizBanda = []
+        for ren in range(columnas):
+            listaBanda = []
+            for col in range(3):
+                print("Numero de banda", ren, "Numero dato", col)
+                aBand = str(input(">"))
+                listaBanda.append(aBand)
+            matrizBanda.append(listaBanda)
+        lisBanda = Banda()
+        return lisBanda.mainBanda()
 
     def visualizarBanda(self):
-        for b in listBanda:
-            print("**Registro Banda*")
-            print("-------------")
-            print("Numero de banda", b.numDeBanda, "\nNumero de miembros", b.miembrosBanda)
-            print("-------------")
+        print(matrizBanda)
+        viBan = Banda()
+        viBan.mainBanda()
+
 
     def mainBanda(self):
         from main import mainP
@@ -31,7 +39,7 @@ class Banda:
         opMb = (int(input(">")))
         if opMb == 1:
             mainBanda = Banda()
-            mainBanda.listaBanda()
+            mainBanda.listaSBanda()
         elif opMb == 2:
             mainBanda = Banda()
             mainBanda.visualizarBanda()
