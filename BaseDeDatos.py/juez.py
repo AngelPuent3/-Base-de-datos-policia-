@@ -1,52 +1,61 @@
-global listRe
-global listCo
-listJu = list()
-listCo= list()
-
-
+matrizJuez=[]
+listaJuez=[]
 class Juez:
 
-    def listaReservacion(self):
-        j = Juez()
-        opListRe = int(input("ingrese la cantidad de jueces"))
-        for i in range(opListRe):
-            j.codigoJuez = int(input("Ingrese el codigo del juez \n >"))
-            j.nombreSJuez = str(input("Ingrese el nombre del juez\n>"))
-            j.edadJuez = int(input("Ingrese los años de servicion del juez\n>"))
-            listJu.append(j)
-            print("-------------")
-        j.mainJuez()
+    def mostrarJuez(self):
+        global matrizJuez
+        global listaJuez
+        b=Juez()
+        print("Porfavor llenar la lista mediante las siguiente indicaciones\n"
+              "Numero dato 0 ---> Codigo del juez\n"
+              "Numero dato 1 ---> Nombre del Juez\n"
+              "Numero dato 2 ---> Años experiencia juez")
+        f = input("Enterr >>>>")
+        print("Ingrese el numero de jueces")
+        columnas = int(input())
+        matrizJuez = []
+        for ren in range(columnas):
+            listaJuez = []
+            for col in range(3):
+                print("Numero de juez", ren,"Numero dato", col)
+                a=str(input(">"))
+                listaJuez.append(a)
+            matrizJuez.append(listaJuez)
+        return b.mainJuez()
+
+    def mostrarCondena(self):
+        global matrizCondena
+        global listaCondena
+        print("Porfavor llenar la lista mediante las siguiente indicaciones\n"
+              "Numero dato 0 ---> Ingrese el numero de Juez\n"
+              "Numero dato 1 ---> Numero de caso\n"
+              "Numero dato 2 ---> Años experiencia juez\n"
+              "Numero dato 3 ---> Lo va condenar? -- si/no\n"
+              "Numero dato 4 ---> Que tipo de condena le va a dar\n"
+              "Numero dato 5 ---> Años de condena\n>")
+        f = input("Enterr >>>>")
+        print("Ingrese el numero de condenas")
+        columnas = int(input())
+        matrizCondena = []
+        for ren in range(columnas):
+            listaCondena = []
+            for col in range(6):
+                print("Numero de juez", ren,"Numero dato", col)
+                co=str(input(">"))
+                listaCondena.append(co)
+            matrizCondena.append(listaCondena)
+        c = Juez()
+        return c.mainJuez()
 
     def visualizarJuez(self):
-        ViJu = Juez()
-        for j in listRe:
-            print("Codigo Juez ", j.codigoJuez, "\nNombre del juez:", j.nombreJuez,"\nEdad juez:",j.edadJuez)
-        ViJu.mainJuez()
-
-    def listaCondena(self):
-        jc = Juez()
-        opListCo = int(input("ingrese la cantidad de jueces"))
-        for i in range(opListCo):
-            jc.numJuez = int(input("Ingrese el numero de Juez\n>"))
-            jc.casoJuez = int(input("Ingrese el numerto de caso \n>"))
-            jc.condena = str(input("¿Lo va condenar?\n"))
-            jc.tipoCondena = str(input("¿Cual es su condena?\n >"))
-            jc.tiempoCondena = int(input("Ingrese su condena en años \n >"))
-            listCo.append(jc)
-            print("----")
-        jc.mainJuez()
+        print(matrizJuez)
+        viJu=Juez()
+        viJu.mainJuez()
 
     def visualizarCondena(self):
-        for jc in listSCondena:
-            print("**Registro Juez*")
-            print("-------------")
-            print("Numero de Juez", jc.numuez, "\nCaso juez:", jc.casoJuez, "\n Lo va condenar?", jc.tipoCondena,
-                  "\n Tipo de condena:", jc.tipoCondena,
-                  "\nTiempo de condena", jc.tiempoCondena)
-            print("-------------")
-        jvi=Juez()
-        jvi.mainJuez()
-
+        print(matrizCondena)
+        viCo=Juez()
+        viCo.mainJuez()
 
     def mainJuez(self):
         from main import mainP
@@ -54,27 +63,24 @@ class Juez:
         print("Menu Juez")
         print("---------")
         print(
-            "Añadir Juez\n, 2.- Visualizar Juez\n 3.-Determinar condena\n 4.-Visualizar Condena\n 5. Menu ladron \n 6.Regresar a menu principal")
+            "1.-Añadir Juez\n2.-Visualizar Juez\n3.-Determinar condena\n4.-Visualizar Condena\n5. Menu ladron \n6.Regresar a menu principal")
         opMjuez = (int(input(">")))
         if opMjuez == 1:
             je = Juez()
-            je.listaJuez()
+            je.mostrarJuez()
         elif opMjuez == 2:
             je = Juez()
             je.visualizarJuez()
         elif opMjuez == 3:
             jeCon = Juez()
-            jeCon.determinarCondena()
+            jeCon.mostrarCondena()
         elif opMjuez == 4:
             jeCon = Juez()
-            jeCon.visualizarJuez()
+            jeCon.visualizarCondena()
         elif opMjuez == 5:
             mainJuezLa = Ladron()
             mainJuezLa.mainLadron()
         elif opMjuez == 6:
             mainP()
         else:
-            exit("Adios")
-
-
-
+            exit ("Adios")
