@@ -1,3 +1,6 @@
+matrizLadron=list()
+listaLadron=list()
+
 class Ladron:
 
     def listaSLadron(self):
