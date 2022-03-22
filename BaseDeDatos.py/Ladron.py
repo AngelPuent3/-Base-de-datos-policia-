@@ -1,33 +1,34 @@
-from Juez import JuezMain
-from Banda import Banda
 global listLadron
+lisLadron=[]
+
 class Ladron:
     def listaLadron(self):
-        listLadron = []
         l=Ladron()
         n=int(input("¿Cuantos Ladrones son?"))
         for i in range (n):
-            l.ladron=input("Ladron:")
             l.codigoLadron = int(input("Ingrese el codigo del ladron\n>"))
-            l.nombreLadron = (input("Ingrese el nombre del ladron\n>"))
+            l.nombreLadron = str(input("Ingrese el nombre del ladron\n>"))
             l.perteneceBanda = str(input("¿Pertenece alguna banda?"))
-            listLadron.append(listLadron)
+            listLadron.append(l)
         l.mainLadron()
 
     def visualizarLadron(self):
-        l=Ladron()
+        le2=Ladron
         for l in listLadron:
             print("**Registro Ladrones*")
             print("-------------")
             print("Numero de ladron", l.ladron, "\nCodigo ladron:",l.codigoLadron, "\n Nombre Ladron", l.nombreLadron , "\nPertenece a una banda?:" , l.perteneceBanda)
             print("-------------")
-        l.mainLadron()
+        le2.mainLadron()
 
     def mainLadron(self):
+        from main import  mainP
+        from juez import Juez
+        from banda import Banda
         print("Menu ladron")
         print("---------")
         print(
-            "Añadir Ladron\n, 2.- Visualizar ladron\n 3.-Ingresar banda delectiva\n 4.-Regresar menu Juez\n 6.Regresar a menu principal")
+            "Añadir Ladron\n2.- Visualizar ladron\n3.-Menu banda\n4.-Regresar menu Juez\n5.Regresar a menu principal")
         opMLa = (int(input(">")))
         if opMLa == 1:
             maiLa = Ladron()
@@ -39,8 +40,9 @@ class Ladron:
             mainLaBa = Banda()
             mainLaBa.Banda()
         elif opMLa == 4:
-            mainLaJu=JuezMain()
-            mainLaJu.mainJuez
+            mainLaJu=Juez()
+            mainLaJu.mainJuez()
+        elif opMLa==5:
+            mainP()
         else:
             print("error loa regraremos al menu principal \n ", mainP())
-
