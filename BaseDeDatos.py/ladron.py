@@ -1,25 +1,29 @@
-global listLadron
-lisLadron=list()
-
 class Ladron:
-    def listaLadron(self):
-        l=Ladron()
-        n=int(input("¿Cuantos Ladrones son?"))
-        for i in range (n):
-            l.codigoLadron = int(input("Ingrese el codigo del ladron\n>"))
-            l.nombreLadron = str(input("Ingrese el nombre del ladron\n>"))
-            l.perteneceBanda = str(input("¿Pertenece alguna banda?"))
-            listLadron.append(l)
-        l.mainLadron()
 
+    def listaSLadron(self):
+        global matrizLadron
+        global listaLadron
+        print("Porfavor llenar la lista mediante las siguiente indicaciones\n"
+              "Numero dato 0 ---> Codigo del ladron\n"
+              "Numero dato 1 ---> Nombre del ladron\n"
+              "Numero dato 2 ---> Pertenece alguna banda?---Si---No")
+        f = input("Enterr >>>>")
+        columnas = int(input("Ingrese el numero de ladrones que desea agregar"))
+        matrizLadron = []
+        for ren in range(columnas):
+            listaLadron = []
+            for col in range(3):
+                print("Numero de ladrones", ren, "Numero dato", col)
+                aLa = str(input(">"))
+                listaLadron.append(aLa)
+            matrizLadron.append(listaLadron)
+        liLa=Ladron()
+        return liLa.mainLadron()
+    
     def visualizarLadron(self):
-        le2=Ladron
-        for l in listLadron:
-            print("**Registro Ladrones*")
-            print("-------------")
-            print("Numero de ladron", l.ladron, "\nCodigo ladron:",l.codigoLadron, "\n Nombre Ladron", l.nombreLadron , "\nPertenece a una banda?:" , l.perteneceBanda)
-            print("-------------")
-        le2.mainLadron()
+        print(matrizLadron)
+        viLa = Ladron()
+        viLa.mainLadron()
 
     def mainLadron(self):
         from main import  mainP
@@ -32,7 +36,7 @@ class Ladron:
         opMLa = (int(input(">")))
         if opMLa == 1:
             maiLa = Ladron()
-            maiLa.listaLadron()
+            maiLa.listaSLadron()
         elif opMLa == 2:
             maiLa = Ladron()
             maiLa.visualizarLadron()
