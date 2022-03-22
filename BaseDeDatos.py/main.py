@@ -1,4 +1,5 @@
-
+from Juez import *
+from Banco import *
 def mainP():
     print("**POlICIA**")
     print("Base de datos")
@@ -12,8 +13,6 @@ def mainP():
         bmain.mainBanco()
     else:
         exit("Adios :)")
-from Juez import JueMain
-from Banco import Banco
 mainP()
 
 
