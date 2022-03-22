@@ -1,21 +1,14 @@
-import Sucursal
-from main import mainP
-from Banco import Banco
-from Sucursal import Sucursal
 global listVigilante
-
-
-class Vigilante(Sucursal):
+listVigilante=[]
+class Vigilante():
 
     def listaVigilante(self):
-        listVigilante = []
         vi=Vigilante()
-        suclist=Sucursal()
         opVi=int(input("Cunatos vigilantes son? \n >"))
         for i in range(opVi):
           vi.fechaVigilante=str(input("Ingrese fecha de contratacion:\n Ejemplo: (16/Marzo/2027) \n >"))
-          vi.armaVigilante=int(input(input("Tiene arma? \n 1.- Si \n 2.-No")))
-          vi.contratado= suclist.contratarSucursal()
+          vi.armaVigilante=int(input("Tiene arma? \n 1.- Si \n 2.-No"))
+          vi.contratado= str(input("Quien lo contrata?"))
           listVigilante.append(listVigilante)
         vi.mainVigilante()
 
@@ -30,6 +23,9 @@ class Vigilante(Sucursal):
 
 
     def mainVigilante(self):
+        from main import mainP
+        from banco import  Banco
+        from sucursal import Sucursal
         print("Menu Vigilante")
         print("---------")
         print("Añadir vigilante\n, 2.- Visualizar vigilante\n 3.Regresar menu Banco\n 4.-Regresar menu Sucursal\n  5.Regresar a menu principal")
@@ -51,6 +47,3 @@ class Vigilante(Sucursal):
         else:
             print("error loa regraremos al menu principal \n ")
             mainP()
-
-
-
