@@ -1,14 +1,15 @@
-from main import mainP
-from Banco import Banco
-from Vigilante import Vigilante
 global listSucursal
 global listContratacion
+listSucursal=list()
+listContratacion=list()
 
 
 
 class Sucursal:
 
     def mainSucursal(self):
+        from main import mainP
+        from banco import  Banco
         print("Menu Sucursal")
         print("---------")
         print("Añadir Sucursal\n, 2.- Visualizar Sucursal\n 3.-Contratar Viglante\n 4.- Visualizar Contratacion \n 5.-Regresar a menu principal\n 6. Regresar a menu banco ")
@@ -36,13 +37,12 @@ class Sucursal:
             sumain.mainSucursal()
 
     def listaSucursal(self):
-        listSucursal =[]
         su = Sucursal()
         opS = int(input("¿Cuantos sucursales  tiene el banco?"))
         for i in range(opS):
             su.codigoSucursal = int(input("Ingrese la clave de la sucursal"))
             su.edadSucursal = int(input("Ingrese los años de la sucursal\n>"))
-            listSucursal.append(listSucursal)
+            listSucursal.append(su)
         su.mainSucursal()
 
     def visualizarSurcusal(self):
@@ -57,6 +57,7 @@ class Sucursal:
 
 
     def contratarSucursal(self):
+        from vigilante import Vigilante
         VI2=Vigilante()
         VI2.visualizarVigilante()
         print("¿Desea contrarta al vigilante?\n"
@@ -87,7 +88,6 @@ class Sucursal:
                   "\nTiempo de condena", jc.tiempoCondena)
             print("-------------")
         su.mainSucursal()
-
 
 
 
