@@ -1,5 +1,5 @@
 global listLadron
-lisLadron=[]
+lisLadron=list()
 
 class Ladron:
     def listaLadron(self):
