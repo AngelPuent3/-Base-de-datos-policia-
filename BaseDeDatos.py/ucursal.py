@@ -1,7 +1,6 @@
-global listSucursal
-global listContratacion
+
 listSucursal=list()
-listContratacion=list()
+matrizSucursal=list()
 
 
 
@@ -37,24 +36,28 @@ class Sucursal:
             sumain.mainSucursal()
 
     def listaSucursal(self):
-        su = Sucursal()
-        opS = int(input("¿Cuantos sucursales  tiene el banco?"))
-        for i in range(opS):
-            su.codigoSucursal = int(input("Ingrese la clave de la sucursal"))
-            su.edadSucursal = int(input("Ingrese los años de la sucursal\n>"))
-            listSucursal.append(su)
-        su.mainSucursal()
+        global matrizSucursal
+        global listSucursal
+        print("Porfavor llenar la lista mediante las siguiente indicaciones\n"
+              "Numero dato 0 ---> Ingrese el codigo de sucursal\n"
+              "Numero dato 1 ---> Edad de la sucursal\n")
+        f = input("Enterr >>>>")
+        columnas = int(input("Ingrese el numero de sucursales"))
+        matrizSucursal = []
+        for ren in range(columnas):
+            listSucursal = []
+            for col in range(6):
+                print("Numero de sucursal", ren, "Numero dato", col)
+                su = str(input(">"))
+                listSucursal.append(su)
+            matrizSucursal.append(listSucursal)
+        suc = Sucursal()
+        return suc.mainSucursal()
 
     def visualizarSurcusal(self):
-        su=Sucursal()
-        for su in listSucursal:
-            print("**Registro Sucursal*")
-            print("-------------")
-            print("Clave de la sucursal:", su.codigoSucursal, "\nAños que tiene la sucursal:", su.edadSucursal)
-            print("-------------")
-        su.mainSucursal()
-
-
+        print(matrizSucursal)
+        viSu = Sucursal()
+        viSu.mainSucursal()
 
     def contratarSucursal(self):
         from vigilante import Vigilante
@@ -88,8 +91,3 @@ class Sucursal:
                   "\nTiempo de condena", jc.tiempoCondena)
             print("-------------")
         su.mainSucursal()
-
-
-
-
-
