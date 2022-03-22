@@ -1,27 +1,32 @@
-global listVigilante
-listVigilante=[]
+matrizVigilante=[]
+listaVigilante=[]
 class Vigilante():
 
     def listaVigilante(self):
-        vi=Vigilante()
-        opVi=int(input("Cunatos vigilantes son? \n >"))
-        for i in range(opVi):
-          vi.fechaVigilante=str(input("Ingrese fecha de contratacion:\n Ejemplo: (16/Marzo/2027) \n >"))
-          vi.armaVigilante=int(input("Tiene arma? \n 1.- Si \n 2.-No"))
-          vi.contratado= str(input("Quien lo contrata?"))
-          listVigilante.append(listVigilante)
-        vi.mainVigilante()
+        global matrizVigilante
+        global listaVigilante
+        print("Porfavor llenar la lista mediante las siguiente indicaciones\n"
+              "Numero dato 0 ---> Fecha de contratacion --- Ejem: 17 Noviembre del 2019\n"
+              "Numero dato 1 ---> Cuenta con arma --- Ejem: Si/No\n"
+              "Numero dato 2 ---> Quien lo contrata --- Ejem: Lic. Perez")
+        f = input("Enterr >>>>")
+        columnas = int(input("Ingrese el numero de bancos que desea agregar"))
+        matrizVigilante = []
+        for ren in range(columnas):
+            listaVigilante = []
+            for col in range(3):
+                print("Numero de banco", ren, "Numero dato", col)
+                aVig = str(input(">"))
+                listaVigilante.append(aVig)
+            matrizVigilante.append(listaVigilante)
+        viP = Vigilante()
+        return viP.mainVigilante()
 
     def visualizarVigilante(self):
-        vi=Vigilante()
-        for vi in listVigilante:
-            print("**Registro Juez*")
-            print("-------------")
-            print("Fecha de contratacion", vi.fechaVigilante, "\nCuenta con arma?:", vi.armaVigilante, "\n Estado de contratacion", vi.contratado)
-            print("-------------")
-        vi.mainVigilante()
-
-
+        print(matrizVigilante)
+        viBa = Vigilante()
+        viBa.mainVigilante()
+    
     def mainVigilante(self):
         from main import mainP
         from banco import  Banco
