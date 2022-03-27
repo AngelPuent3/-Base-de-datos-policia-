@@ -1,6 +1,6 @@
-# -Base-de-datos-policia-
-## Proyecto escolar 2do Parcial
-
+#  Base de datos Policia-
+## Programacion Orientada a Objetos
+### Proyecto escolar 2do-3er Parcial
 La Policía quiere crear una base de datos sobre la seguridad en algunas entidades bancarias. Para ello
 tiene en cuenta:
 
