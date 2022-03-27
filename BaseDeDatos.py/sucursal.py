@@ -1,93 +1,59 @@
+class Vigilante:
+    def __init__(self,fecha,arma, contrato):
+        self.fecha=fecha
+        self.arma=arma
+        self.contrato=contrato
 
-listSucursal=list()
-matrizSucursal=list()
+    def __str__(self):
+        return "Vigilante:<Fecha de contrato: {0}, Arma: {1}>".format(self.fecha,self.arma,self.contrato)
 
+class Vigilantes:
+    def __init__(self):
+        self.diccionarioVigilante=[]
 
+    def agregarVigilante(self,newVigilante):
+        self.diccionarioVigilante.append(newVigilante)
 
-class Sucursal:
+    def registroVigilante(self):
+        print("Registro vigilante\n")
+        for vigilante in self.diccionarioVigilante:
+            print(vigilante)
 
-    def mainSucursal(self):
-        from main import mainP
-        from banco import  Banco
-        print("Menu Sucursal")
-        print("---------")
-        print("Añadir Sucursal\n, 2.- Visualizar Sucursal\n 3.-Contratar Viglante\n 4.- Visualizar Contratacion \n 5.-Regresar a menu principal\n 6. Regresar a menu banco ")
-        opMSu = (int(input(">")))
-        if opMSu==1:
-            mainSu=Sucursal()
-            mainSu.listaSucursal()
-        elif opMSu==2:
-            mainSu=Sucursal()
-            mainSu.visualizarSurcusal()
-        elif opMSu==3:
-            mainSu=Sucursal()
-            mainSu.contratarSucursal()
-        elif opMSu ==4:
-            mainSu = Sucursal()
-            mainSu.visualizarContrato()
-        elif opMSu==5:
-            mainP()
-        elif opMSu==6:
-            mainbancoSu=Banco()
-            mainbancoSu.mainBanco()
-        else:
-            print("error regresando al menu principal \n ")
-            sumain=Sucursal()
-            sumain.mainSucursal()
+class MenuVigilante:
+    def __init__(self):
+        self.matrizVigilante= Vigilantes()
 
-    def listaSucursal(self):
-        global matrizSucursal
-        global listSucursal
-        print("Porfavor llenar la lista mediante las siguiente indicaciones\n"
-              "Numero dato 0 ---> Ingrese el codigo de sucursal\n"
-              "Numero dato 1 ---> Edad de la sucursal\n")
-        f = input("Enterr >>>>")
-        columnas = int(input("Ingrese el numero de sucursales"))
-        matrizSucursal = []
-        for ren in range(columnas):
-            listSucursal = []
-            for col in range(6):
-                print("Numero de sucursal", ren, "Numero dato", col)
-                su = str(input(">"))
-                listSucursal.append(su)
-            matrizSucursal.append(listSucursal)
-        suc = Sucursal()
-        return suc.mainSucursal()
+    def mainVigilante(self):
+        while True:
+            print("Menu Vigilante")
+            print("---------")
+            print("Añadir vigilante\n, 2.- Visualizar vigilante\n 3.Regresar menu Banco\n 4.-Regresar menu Sucursal\n  5.Regresar a menu principal")
 
-    def visualizarSurcusal(self):
-        print(matrizSucursal)
-        viSu = Sucursal()
-        viSu.mainSucursal()
+            opcion = int(input("> "))
+            if 1 == opcion:
+                self.agregarVigilante()
+            elif 2 == opcion:
+                self.printVigilantes()
+            elif 3 == opcion:
+                from bancos import MenuBanco
+                menuVigilante=MenuBanco()
+                menuVigilante.mainBanco()
+            elif 4 == opcion:
+                from Sucursal import MenuSucursal
+                menuVigilante=MenuSucursal()
+                menuVigilante.mainSucursal()
+            elif 5 == opcion:
+                from main import mainP
+                mainP()
+            else:
+                print('Esa opcion no existe')
 
-    def contratarSucursal(self):
-        from vigilante import Vigilante
-        VI2=Vigilante()
-        VI2.visualizarVigilante()
-        print("¿Desea contrarta al vigilante?\n"
-              "1.- SI\n"
-              "2.- No\n")
-        opMCon=int(input(">"))
-        if opMCon==1:
-            vi=Vigilante()
-            vi.vigilante="Vigilante contratado"
-            return (vi.vigilante)
-        elif opMCon==2:
-            vi = Vigilante()
-            vi.vigilante = "Vigilante NO contratado"
-            return (vi.vigilante)
-        else:
-            print("Error")
-            sucon=Sucursal()
-            sucon.contratarSucursal()
+    def agregarVigilante(self):
+        codigo = input("Ingrese el codigo del vigilante:\n>")
+        arma = input("Ingrese el domicilio del vigilante:\n>")
+        contrato= input("Quien lo contrato?\n>")
+        newVigilante= Vigilante(codigo,arma,contrato)
+        self.matrizVigilante.agregarVigilante(newVigilante)
 
-    def visualizarContrato(self):
-        listSContratacion = []
-        su=Sucursal()
-        for jc in listSContratacion:
-            print("**Registro Juez*")
-            print("-------------")
-            print("Numero de Juez", jc.numuez, "\nCaso juez:", jc.casoJuez, "\n Lo va condenar?", jc.tipoCondena,
-                  "\n Tipo de condena:", jc.tipoCondena,
-                  "\nTiempo de condena", jc.tiempoCondena)
-            print("-------------")
-        su.mainSucursal()
+    def printVigilantes(self):
+        self.matrizVigilante.registroVigilante()
